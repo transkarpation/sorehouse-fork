@@ -10,6 +10,7 @@ const app = express();
 
 sequelize.authenticate().then(async () => {
   sequelize.sync({ force: true });
+  app.use(express.json());
   app.use(morgan('tiny'));
   app.use('/api', router);
 
