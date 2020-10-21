@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const morgan = require('morgan');
 
 const { sequelize } = require('./db');
 const router = require('./routes');
@@ -9,7 +10,7 @@ const app = express();
 
 sequelize.authenticate().then(async () => {
   sequelize.sync({ force: true });
-
+  app.use(morgan('tiny'));
   app.use('/api', router);
 
   app.listen(APP_PORT, () => {
