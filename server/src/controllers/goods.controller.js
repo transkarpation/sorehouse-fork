@@ -2,7 +2,24 @@ const { Goods } = require('../db');
 const validate = require('../helpers/validationResult');
 
 module.exports = {
-  async get(req, res) {},
+  async get(req, res) {
+    const perPage = req.query.perPage || 5;
+    const currentPage = req.query.page || 1;
+    const total = await Goods.count();
+    const lastPage = Math.ceil(total / perPage);
+    const data = await Goods.findAll({
+      limit: perPage,
+      offset: perPage * (currentPage - 1),
+    });
+
+    return res.send({
+      total,
+      currentPage,
+      perPage,
+      lastPage,
+      data,
+    });
+  },
 
   async store(req, res) {
     const validateRes = validate(req, res);
