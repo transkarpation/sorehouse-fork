@@ -1,0 +1,568 @@
+{
+	"variables": [],
+	"info": {
+		"name": "app Copy",
+		"_postman_id": "7c381337-a52c-8571-e20d-e23d54610be6",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"description": "",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8080/api/auth/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"zdrok@i.ua\",\n    \"password\": \"123\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8080/api/auth/register/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Oleg\",\n    \"lastName\": \"Zdrok\",\n\t\"email\": \"zdrok@i.ua\",\n    \"password\": \"123\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "goods",
+			"description": "",
+			"item": [
+				{
+					"name": "goods create",
+					"request": {
+						"url": "http://localhost:8080/api/goods/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"potato\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "goods update",
+					"request": {
+						"url": "http://localhost:8080/api/goods/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"potato3\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "goods get",
+					"request": {
+						"url": "http://localhost:8080/api/goods",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "goods destroy",
+					"request": {
+						"url": "http://localhost:8080/api/goods/1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"description": "",
+			"item": [
+				{
+					"name": "category create",
+					"request": {
+						"url": "http://localhost:8080/api/category/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"food\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "category update",
+					"request": {
+						"url": "http://localhost:8080/api/category/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"food\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "category delete",
+					"request": {
+						"url": "http://localhost:8080/api/category/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"food\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "category get",
+					"request": {
+						"url": "http://localhost:8080/api/category/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "store",
+			"description": "",
+			"item": [
+				{
+					"name": "store create",
+					"request": {
+						"url": "http://localhost:8080/api/store/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"stor2\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "unit store",
+					"request": {
+						"url": "http://localhost:8080/api/unit/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"комп\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "store get",
+					"request": {
+						"url": "http://localhost:8080/api/store/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "store add goods",
+					"request": {
+						"url": "http://localhost:8080/api/store/add-goods/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"StoreId\": \"1\",\n\t\"GoodId\": \"1\",\n\t\"UnitId\": \"1\",\n\t\"ContragentId\": \"1\",\n\t\"amount\": \"100\",\n\t\"price\": \"55\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get items by store",
+					"request": {
+						"url": "http://localhost:8080/api/store/get-items/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "unit",
+			"description": "",
+			"item": [
+				{
+					"name": "unit create",
+					"request": {
+						"url": "http://localhost:8080/api/unit/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"shortName\": \"kg\",\n\t\"fullName\": \"kilogram\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "unit get",
+					"request": {
+						"url": "http://localhost:8080/api/unit/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "unit update",
+					"request": {
+						"url": "http://localhost:8080/api/unit/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"shortName\": \"ola\",\r\n    \"fullName\": \"kola\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "unit delete",
+					"request": {
+						"url": "http://localhost:8080/api/unit/1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contragent",
+			"description": "",
+			"item": [
+				{
+					"name": "contragent create",
+					"request": {
+						"url": "http://localhost:8080/api/contragent/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"bob\",\n\t\"lastName\": \"dilan\",\n\t\"email\": \"bob@i.ua\",\n\t\"company\": \"OOO Bob\",\n\t\"companyAdress\": \"strit strit\",\n\t\"phone\": \"0982222222\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "contragent get",
+					"request": {
+						"url": "http://localhost:8080/api/contragent/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"kg\",\n\t\"lastName\": \"kilogram\",\n\t\"email\": \"kilogram\",\n\t\"company\": \"kilogram\",\n\t\"phone\": \"kilogram\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
