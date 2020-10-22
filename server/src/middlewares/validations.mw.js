@@ -43,4 +43,8 @@ module.exports = {
         return Promise.resolve();
       }),
   ],
+  unitCreateValidators: [
+    body('shortName').isLength({ min: 1 }),
+    body('fullName').isLength({ min: 3 }),
+  ],
 };
