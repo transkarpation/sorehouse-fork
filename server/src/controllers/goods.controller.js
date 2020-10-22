@@ -38,7 +38,20 @@ module.exports = {
     return res.send(result.toJSON());
   },
 
-  async update(req, res) {},
+  async update(req, res) {
+    const validateRes = validate(req, res);
+    if (!validateRes) {
+      res.end();
+    }
+
+    const { id } = req.params;
+    const { title, expirationTime } = req.body;
+    const result = await Goods.findByPk(id);
+    result.title = title;
+    result.expirationTime = expirationTime;
+    await result.save();
+    res.send(result);
+  },
 
   async delete(req, res) {},
 };
