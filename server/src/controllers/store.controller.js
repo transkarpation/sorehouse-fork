@@ -43,6 +43,8 @@ module.exports = {
   async addGoods(req, res) {
     const { StoreId, GoodId, UnitId, ContragentId, amount, price } = req.body;
 
+    console.log(ContragentId);
+
     const result = await StoreItem.create({
       StoreId,
       GoodId,

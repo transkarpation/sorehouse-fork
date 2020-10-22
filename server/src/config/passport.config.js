@@ -11,6 +11,7 @@ passport.use(
   new LocalStrategy(
     { passReqToCallback: true, usernameField: 'email' },
     async (req, email, password, next) => {
+      console.log('register')
       const userByEmail = await User.findOne({
         where: {
           email,
