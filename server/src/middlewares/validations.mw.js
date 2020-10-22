@@ -51,4 +51,13 @@ module.exports = {
   categoryCreateValidators: [body('name').isLength({ min: 3 })],
 
   storeCreateValidators: [body('name').isLength({ min: 3 })],
+
+  contragentCreateValidators: [
+    body('firsName').optional().isAlpha(),
+    body('lastName').optional().isAlpha(),
+    body('email').optional().isEmail(),
+    body('company').notEmpty().isLength({min: 3}),
+    body('companyAdress').optional().isAlphanumeric().isLength({min: 5}),
+    body('phone').notEmpty().isNumeric(),
+  ],
 };
