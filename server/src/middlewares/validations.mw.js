@@ -47,4 +47,6 @@ module.exports = {
     body('shortName').isLength({ min: 1 }),
     body('fullName').isLength({ min: 3 }),
   ],
+
+  categoryCreateValidators: [body('name').isLength({ min: 3 })],
 };
