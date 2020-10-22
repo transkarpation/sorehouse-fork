@@ -5,7 +5,10 @@ module.exports = {
   async get(req, res) {},
 
   async store(req, res) {
-    validate(req, res);
+    const validateRes = validate(req, res);
+    if (!validateRes) {
+      return res.end();
+    }
 
     const { title, expirationTime } = req.body;
     const result = await Goods.create({
