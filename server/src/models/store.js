@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Store.init(
     {
-      name: DataTypes.STRING,
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     {
       sequelize,
