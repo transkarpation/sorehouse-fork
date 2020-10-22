@@ -1,4 +1,4 @@
-const { Store } = require('../db');
+const { Store, StoreItem } = require('../db');
 const validate = require('../helpers/validationResult');
 
 module.exports = {
