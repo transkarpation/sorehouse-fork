@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Contragent.init(
     {
-      firsName: {
+      firstName: {
         type: DataTypes.STRING,
       },
       lastName: {
