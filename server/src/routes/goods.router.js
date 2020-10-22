@@ -6,6 +6,6 @@ const router = Router();
 
 router.get('/', ctrl.get);
 router.post('/', goodsCreateValidators, ctrl.store);
-router.post('/:id', goodsUpdateValidators, ctrl.update);
+router.put('/:id', goodsUpdateValidators, ctrl.update);
 
 module.exports = router;
