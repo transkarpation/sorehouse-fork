@@ -9,6 +9,6 @@ const router = Router();
 router.get('/', ctrl.get);
 router.post('/', unitCreateValidators, ctrl.store);
 router.put('/:id', unitCreateValidators, ctrl.update);
-router.delete('/:id', unitCreateValidators, ctrl.delete);
+router.delete('/:id', ctrl.delete);
 
 module.exports = router;
