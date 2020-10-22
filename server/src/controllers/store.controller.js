@@ -1,4 +1,4 @@
-const { Store, StoreItem } = require('../db');
+const { Store, StoreItem, Goods, Unit, Category, Contragent } = require('../db');
 const validate = require('../helpers/validationResult');
 
 module.exports = {
@@ -53,5 +53,35 @@ module.exports = {
     });
 
     res.send(result);
+  },
+
+  async getItems(req, res) {
+    const { id } = req.params;
+
+    const items = await StoreItem.findAll({
+      where: { StoreId: id },
+      attributes: ['id', 'amount', 'price'],
+      include: [
+        {
+          model: Store,
+          attributes: ['name'],
+        },
+        {
+          model: Goods,
+          attributes: ['title'],
+        },
+        {
+          model: Contragent,
+        },
+        {
+          model: Unit,
+        },
+      ],
+      order: [
+        [Goods, 'title', 'DESC'],
+      ],
+    });
+
+    res.send(items);
   },
 };

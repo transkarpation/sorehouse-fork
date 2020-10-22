@@ -11,5 +11,6 @@ router.post('/', storeCreateValidators, ctrl.store);
 router.put('/:id', storeCreateValidators, ctrl.update);
 router.delete('/:id', ctrl.delete);
 router.post('/add-goods', ctrl.addGoods);
+router.get('/get-items/:id', ctrl.getItems);
 
 module.exports = router;
