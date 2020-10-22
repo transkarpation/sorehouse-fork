@@ -9,7 +9,9 @@ const { APP_PORT } = require('./config/app.config');
 const app = express();
 
 sequelize.authenticate().then(async () => {
-  sequelize.sync({ force: true });
+  // sequelize.sync({ force: true });
+  sequelize.sync();
+
   app.use(express.json());
   app.use(morgan('tiny'));
   app.use('/api', router);
