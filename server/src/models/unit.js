@@ -13,8 +13,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   Unit.init(
     {
-      shortName: DataTypes.STRING,
-      fullName: DataTypes.STRING,
+      shortName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      fullName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     {
       sequelize,
