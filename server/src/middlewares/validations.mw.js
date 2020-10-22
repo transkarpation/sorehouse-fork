@@ -49,4 +49,6 @@ module.exports = {
   ],
 
   categoryCreateValidators: [body('name').isLength({ min: 3 })],
+
+  storeCreateValidators: [body('name').isLength({ min: 3 })],
 };
