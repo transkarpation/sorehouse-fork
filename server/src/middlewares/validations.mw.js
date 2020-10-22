@@ -31,4 +31,16 @@ module.exports = {
         return Promise.resolve();
       }),
   ],
+  goodsDeleteValidators: [
+    param('id')
+      .isInt()
+      .custom(async (id) => {
+        const result = await Goods.findByPk(id);
+        if (!result) {
+          return Promise.reject(new Error('Bad request req.params.id'));
+        }
+
+        return Promise.resolve();
+      }),
+  ],
 };

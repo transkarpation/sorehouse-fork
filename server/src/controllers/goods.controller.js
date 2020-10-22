@@ -53,5 +53,16 @@ module.exports = {
     res.send(result);
   },
 
-  async delete(req, res) {},
+  async delete(req, res) {
+    const validateRes = validate(req, res);
+    console.log(validateRes);
+    if (!validateRes) {
+      return res.end();
+    }
+
+    const { id } = req.params;
+    const result = await Goods.findByPk(id);
+    await result.destroy();
+    return res.end();
+  },
 };
