@@ -39,4 +39,19 @@ module.exports = {
     const result = await store.destroy();
     res.send(result);
   },
+
+  async addGoods(req, res) {
+    const { StoreId, GoodId, UnitId, ContragentId, amount, price } = req.body;
+
+    const result = await StoreItem.create({
+      StoreId,
+      GoodId,
+      UnitId,
+      ContragentId,
+      amount,
+      price,
+    });
+
+    res.send(result);
+  },
 };
