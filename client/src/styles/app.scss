@@ -1,0 +1,19 @@
+body {
+  height: 100vh;
+}
+
+#root {
+  position: relative;
+}
+
+.auth-page {
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .field {
+    margin-bottom: 10px;
+  }
+}
