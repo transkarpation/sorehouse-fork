@@ -5,9 +5,12 @@ import reportWebVitals from './reportWebVitals';
 import {initStore} from './redux';
 import { Provider } from 'react-redux';
 
+const store = initStore();
+window.store = store;
+
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={initStore()}>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,

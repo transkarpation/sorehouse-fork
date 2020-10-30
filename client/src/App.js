@@ -1,17 +1,18 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 
 import Nav from './components/nav';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
+import history from './history'
 
 import './styles/app.scss';
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <CssBaseline />
       <Nav></Nav>
       <Container>
@@ -25,7 +26,7 @@ function App() {
           </Route>
       </Switch>
       </Container>
-    </BrowserRouter>
+    </Router>
   );
 }
 

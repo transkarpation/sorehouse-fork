@@ -3,7 +3,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux'
-import {signUpRequest} from '../../ducks/auth'
 
 
 export const validate = (values) => {
@@ -29,12 +28,12 @@ export default function Login() {
   const formik = useFormik({
     initialValues: {
       email: '',
+      password: ''
     },
     validate,
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
       const {email, password} = values;
-      dispatch(signUpRequest(email, password));
     },
   });
 
